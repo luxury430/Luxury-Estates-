@@ -1,4 +1,4 @@
-* Preloader full-screen */
+/* Preloader full-screen */
 #lux-loader {
     position: fixed;
     top: 0;
@@ -372,25 +372,28 @@ body {
   transition: 0.4s;
 }
 
-.side-nav.active {
-  transform: translateX(0);
-}
+/* Sidebar Styling */
 .side-nav {
   position: fixed;
   top: 0;
-  right: 0; /* keep it 0 */
-  width: min(450px, 100%);
+  right: -100%; /* Hidden off-screen */
+  width: width: min(450px, 50%);
   height: 100vh;
-
-  background: rgba(5, 5, 5, 0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(20px); /* Premium Glass Effect */
   border-left: 1px solid rgba(255, 215, 0, 0.4);
-
-  transform: translateX(100%); /* HIDE completely */
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-
   z-index: 1999;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+ 
 }
+
+.side-nav.active {
+  right: 0;
+}
+
 
 /* Logo */
 .nav-logo {
@@ -1652,7 +1655,7 @@ text-align:center;
     margin: 30px auto;
 
     /* Typography is key for premium feel */
-    font-size: 13px;             /* Smaller font is often more 'luxury' */
+    font-size: 10px;             /* Smaller font is often more 'luxury' */
     text-transform: uppercase;    /* All caps for authority */
     letter-spacing: 2px;         /* Wide spacing looks expensive */
     font-weight: 500;

@@ -45,7 +45,39 @@ if (loginForm) {
 // SIGNUP
 // =======================
 const signupForm = document.getElementById("signup");
+document.addEventListener("DOMContentLoaded", () => {
 
+  // LOGIN FORM
+  const loginForm = document.getElementById("login");
+
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // 🚫 STOP REFRESH
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    console.log("Login:", email);
+
+    // Firebase login here
+  });
+
+
+  // SIGNUP FORM
+  const signupForm = document.getElementById("signup");
+
+  signupForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // 🚫 STOP REFRESH
+
+    const name = document.getElementById("signupName").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+
+    console.log("Signup:", name, email);
+
+    // Firebase signup here
+  });
+
+});
 if (signupForm) {
   signupForm.onsubmit = function(e) {
     e.preventDefault();

@@ -34,8 +34,11 @@ if (loginForm) {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => alert("Login success 🔥"))
-      .catch(() => alert("Login failed ❌"));
-  };
+      .catch((error) => {
+  alert(error.code);
+  console.log(error);
+});
+  
 }
 
 // =======================

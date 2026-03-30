@@ -375,6 +375,28 @@ function switchTab(tabId, el) {
 }
 </script>
 <script type="module" src="login.js"></script>
+    <script>
+  // Add this inside your existing script tag or a new one
+  document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(el => {
+      // Small timeout ensures the CSS transition catches the change
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, 100); 
+    });
+  });
+
+  // Your existing tab function
+  function switchTab(tabId, el) {
+    document.querySelectorAll(".form-section").forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(el => el.classList.remove("active"));
+
+    document.getElementById(tabId).classList.add("active");
+    el.classList.add("active");
+  }
+</script>
+
 </body>
 </html>
   

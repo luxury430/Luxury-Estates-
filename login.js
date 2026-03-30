@@ -1,4 +1,3 @@
-// 🔥 Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getAuth,
@@ -6,7 +5,7 @@ import {
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// Config
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBm_cuY0tQI60bAzwWZyvuUSaEX6sTgTs4",
   authDomain: "neuroforge-815e5.firebaseapp.com",
@@ -16,93 +15,54 @@ const firebaseConfig = {
   appId: "1:101095135000:web:b5068cfb8262dd9f8c306d"
 };
 
-// Init
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// =======================
-// LOGIN
-// =======================
-const loginForm = document.getElementById("login");
-
-if (loginForm) {
-  loginForm.onsubmit = function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => alert("Login success 🔥"))
-      .catch((error) => {
-  alert(error.code);
-  console.log(error);
-});
-  
-}
-
-// =======================
-// SIGNUP
-// =======================
-const signupForm = document.getElementById("signup");
+// Run when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
 
-  // LOGIN FORM
+  // ================= LOGIN =================
   const loginForm = document.getElementById("login");
 
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // 🚫 STOP REFRESH
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // 🚫 STOP REFRESH
 
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
 
-    console.log("Login:", email);
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("Login success 🔥");
+        })
+        .catch((error) => {
+          alert(error.code);
+          console.log(error);
+        });
+    });
+  }
 
-    // Firebase login here
-  });
-
-
-  // SIGNUP FORM
+  // ================= SIGNUP =================
   const signupForm = document.getElementById("signup");
 
-  signupForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // 🚫 STOP REFRESH
+  if (signupForm) {
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // 🚫 STOP REFRESH
 
-    const name = document.getElementById("signupName").value;
-    const email = document.getElementById("signupEmail").value;
-    const password = document.getElementById("signupPassword").value;
+      const name = document.getElementById("signupName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
 
-    console.log("Signup:", name, email);
-
-    // Firebase signup here
-  });
-
-});
-if (signupForm) {
-  signupForm.onsubmit = function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById("signupEmail").value;
-    const password = document.getElementById("signupPassword").value;
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => alert("Signup success 🚀"))
-      .catch(() => alert("Signup failed ❌"));
-  };
-}
-document.addEventListener("DOMContentLoaded", () => {
-
-  const signupForm = document.getElementById("signup");
-
-  signupForm.addEventListener("submit", function(e) {
-    e.preventDefault(); // 🚫 THIS stops refresh
-
-    const email = document.getElementById("signupEmail").value;
-    const password = document.getElementById("signupPassword").value;
-
-    console.log("Signup:", email);
-
-    // Firebase signup here
-  });
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("Signup success 🚀");
+        })
+        .catch((error) => {
+          alert(error.code);
+          console.log(error);
+        });
+    });
+  }
 
 });

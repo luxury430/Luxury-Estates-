@@ -7,7 +7,7 @@ import {
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyBm_cuY0tQI60bAzwWZyvuUSaEX6sTgTs4",
+  apiKey: "AIzaSyBm_cuY0tQI6ObAzwWZyvuUSaEX6sTgTs4",
   authDomain: "neuroforge-815e5.firebaseapp.com",
   projectId: "neuroforge-815e5",
   storageBucket: "neuroforge-815e5.firebasestorage.app",

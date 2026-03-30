@@ -90,3 +90,19 @@ if (signupForm) {
       .catch(() => alert("Signup failed ❌"));
   };
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+  const signupForm = document.getElementById("signup");
+
+  signupForm.addEventListener("submit", function(e) {
+    e.preventDefault(); // 🚫 THIS stops refresh
+
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+
+    console.log("Signup:", email);
+
+    // Firebase signup here
+  });
+
+});
